@@ -5,22 +5,22 @@ const skillsData = [
     {
         category: "Frontend",
         skills: [
-            { name: 'React JS', icon: <FaReact className="text-[#61DAFB]" />, level: 10 },
-            { name: 'Tailwind CSS', icon: <SiTailwindcss className="text-[#38B2AC]" />, level: 55 },
+            { name: 'React JS', icon: <FaReact className="text-[#61DAFB]" />, level: 70 },
+            { name: 'Tailwind CSS', icon: <SiTailwindcss className="text-[#38B2AC]" />, level: 60 },
             {name: 'Bootstrap', icon: <SiBootstrap className="text-[#563D7C]" />, level: 60},
-            { name: 'JavaScript (ES6+)', icon: <FaJs className="text-[#F7DF1E]" />, level: 85 },
+            { name: 'JavaScript (ES6+)', icon: <FaJs className="text-[#F7DF1E]" />, level: 80 },
             { name: 'HTML5/CSS3', icon: <FaHtml5 className="text-[#E34F26]" />, level: 95 },
         ]
     },
     {
         category: "Backend & DB",
         skills: [
-            { name: 'Node.js', icon: <FaNodeJs className="text-[#339933]" />, level: 70 },
-            { name: 'Express.js', icon: <SiExpress className="text-black dark:text-white" />, level: 65 },
-            { name: 'MongoDB', icon: <SiMongodb className="text-[#47A248]" />, level: 75 },
-            { name: 'Firebase', icon: <SiFirebase className="text-[#FFCA28]" />, level: 75 },
-            { name: 'Python', icon: <SiPython className="text-[#3776AB]" />, level: 65 },
-            { name: 'PHP', icon: <SiPhp className="text-[#777BB4]" />, level: 60 },
+            { name: 'Node.js', icon: <FaNodeJs className="text-[#339933]" />, level: 40 },
+            { name: 'Express.js', icon: <SiExpress className="text-black dark:text-white" />, level: 40 },
+            { name: 'MongoDB', icon: <SiMongodb className="text-[#47A248]" />, level: 85 },
+            { name: 'Firebase', icon: <SiFirebase className="text-[#FFCA28]" />, level: 80 },
+            { name: 'Python', icon: <SiPython className="text-[#3776AB]" />, level: 75 },
+            { name: 'PHP', icon: <SiPhp className="text-[#777BB4]" />, level: 70 },
         ]
     },
     {
@@ -28,8 +28,8 @@ const skillsData = [
         skills: [
             { name: 'Git / GitHub', icon: <FaGitAlt className="text-[#F05032]" />, level: 85 },
             { name: 'XAMPP', icon: <SiXampp className="text-[#FB7A24]" />, level: 70 },
-            { name: 'Postman', icon: <SiPostman className="text-[#FF6C37]" />, level: 80 },
-            { name: 'Vercel', icon: <SiVercel className="text-black dark:text-white" />, level: 75 },
+            { name: 'Postman', icon: <SiPostman className="text-[#FF6C37]" />, level: 65 },
+            { name: 'Vercel', icon: <SiVercel className="text-black dark:text-white" />, level: 55 },
             
            
          
