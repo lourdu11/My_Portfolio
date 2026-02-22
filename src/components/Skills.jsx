@@ -1,12 +1,13 @@
 import { motion } from 'framer-motion';
 import { FaHtml5, FaCss3Alt, FaJs, FaReact, FaNodeJs, FaGitAlt } from 'react-icons/fa';
-import { SiTailwindcss, SiFramer, SiFirebase, SiPython,SiPhp,SiXampp,SiExpress,SiMongodb,SiPostman,SiVercel, } from 'react-icons/si';
+import { SiTailwindcss, SiFramer, SiFirebase, SiPython,SiPhp,SiXampp,SiExpress,SiMongodb,SiPostman,SiVercel,SiBootstrap } from 'react-icons/si';
 const skillsData = [
     {
         category: "Frontend",
         skills: [
             { name: 'React JS', icon: <FaReact className="text-[#61DAFB]" />, level: 10 },
             { name: 'Tailwind CSS', icon: <SiTailwindcss className="text-[#38B2AC]" />, level: 55 },
+            {name: 'Bootstrap', icon: <SiBootstrap className="text-[#563D7C]" />, level: 60},
             { name: 'JavaScript (ES6+)', icon: <FaJs className="text-[#F7DF1E]" />, level: 85 },
             { name: 'HTML5/CSS3', icon: <FaHtml5 className="text-[#E34F26]" />, level: 95 },
         ]

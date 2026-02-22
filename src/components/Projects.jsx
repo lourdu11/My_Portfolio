@@ -3,37 +3,30 @@ import { FaGithub, FaExternalLinkAlt } from 'react-icons/fa';
 
 const projectsData = [
     {
-        title: 'E-Commerce Platform',
-        description: 'A full-featured e-commerce platform built with React and Firebase. Includes user authentication, product search, cart functionality, and Stripe payment integration.',
+        title: 'Magizhchi-Garments – E-Commerce Web App',
+        description: '  Built a full-stack e-commerce platform with product and category CRUD operations, shopping cart, checkout, and order management features. Developed the frontend using HTML, CSS, and Bootstrap, and implemented the backend using PHP with a MySQL database. Integrated session handling, user authentication, and optimized database structure for better performance.”',
         image: 'https://images.unsplash.com/photo-1557821552-17105176677c?q=80&w=1000&auto=format&fit=crop',
-        tags: ['React', 'Firebase', 'Tailwind', 'Stripe'],
-        github: 'https://github.com',
+        tags: ['PHP', 'XAMMP', 'MySQL', 'Bootstrap'],
+        github: 'https://github.com/lourdu11/Magizhchi_Garments',
         live: 'https://example.com',
     },
     {
-        title: 'Task Management App',
-        description: 'A beautiful and responsive Kanban-style task management application. Users can create boards, drag and drop tasks, and track their progress seamlessly.',
-        image: 'https://images.unsplash.com/photo-1611224885990-ab7363d1f2a9?q=80&w=1000&auto=format&fit=crop',
+        title: 'Grocery Billing System',
+        description: 'Built a full-stack Grocery Billing System using PHP and MySQL with product management, invoice generation, and secure billing functionality, featuring a responsive frontend developed with HTML, CSS, and Bootstrap.',
+        image: 'https://ik.imagekit.io/Lourdu/sample/grocy.jpeg',
         tags: ['Next.js', 'TypeScript', 'Prisma', 'PostgreSQL'],
-        github: 'https://github.com',
+        github: 'https://github.com/lourdu11/Grocery_Billing_System',
         live: 'https://example.com',
     },
     {
-        title: 'AI Image Generator',
-        description: 'A MERN stack application that leverages OpenAI API to generate unique images based on user text prompts. Users can also share their creations with the community.',
+        title: 'Color Palette Generator',
+        description: 'Built a full-stack MERN color palette generator that enables users to create, customize, and save color combinations in real time. Implemented responsive UI design and efficient data management for a smooth and scalable user experience.',
         image: 'https://images.unsplash.com/photo-1620641788421-7a1c342ea42e?q=80&w=1000&auto=format&fit=crop',
         tags: ['MongoDB', 'Express', 'React', 'Node.js', 'OpenAI'],
-        github: 'https://github.com',
+        github: 'https://github.com/lourdu11/COLER-PALETTE',
         live: 'https://example.com',
     },
-    {
-        title: 'Weather Dashboard',
-        description: 'A dynamic weather application displaying real-time data and forecasts. Features a search functionality with autocomplete, interactive charts, and a sleek dark mode UI.',
-        image: 'https://images.unsplash.com/photo-1592210454359-9043f067919b?q=80&w=1000&auto=format&fit=crop',
-        tags: ['React', 'OpenWeatherAPI', 'Chart.js'],
-        github: 'https://github.com',
-        live: 'https://example.com',
-    },
+    
 ];
 
 const ProjectCard = ({ project, index }) => (
