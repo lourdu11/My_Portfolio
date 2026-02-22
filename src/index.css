@@ -1,0 +1,73 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --glass-bg: rgba(255, 255, 255, 0.7);
+    --glass-border: rgba(255, 255, 255, 0.18);
+    --glass-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.07);
+    --color-bg: #f8fafc;
+    /* slate-50 */
+    --color-text: #0f172a;
+    /* slate-900 */
+    --color-muted: #64748b;
+    /* slate-500 */
+  }
+
+  .dark {
+    --glass-bg: rgba(15, 23, 42, 0.7);
+    --glass-border: rgba(255, 255, 255, 0.05);
+    --glass-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+    --color-bg: #0f172a;
+    /* slate-900 */
+    --color-text: #f8fafc;
+    /* slate-50 */
+    --color-muted: #94a3b8;
+    /* slate-400 */
+  }
+
+  body {
+    @apply bg-[var(--color-bg)] text-[var(--color-text)] transition-colors duration-300 font-sans antialiased overflow-x-hidden;
+  }
+}
+
+@layer components {
+  .glass {
+    @apply bg-[var(--glass-bg)] backdrop-blur-md border border-[var(--glass-border)] shadow-[var(--glass-shadow)];
+  }
+
+  .glass-card {
+    @apply glass rounded-2xl p-6 transition-all duration-300 hover:shadow-xl hover:-translate-y-1;
+  }
+
+  .btn-primary {
+    @apply px-6 py-3 rounded-xl bg-gradient-to-r from-primary-600 to-accent-500 text-white font-medium shadow-lg hover:shadow-xl hover:opacity-90 transition-all duration-300 transform hover:-translate-y-0.5 relative overflow-hidden;
+  }
+
+  .btn-secondary {
+    @apply px-6 py-3 rounded-xl bg-transparent border-2 border-primary-500 text-primary-600 dark:text-primary-400 font-medium hover:bg-primary-50 dark:hover:bg-primary-900/30 transition-all duration-300;
+  }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-primary-300 dark:bg-primary-700 rounded-full;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-primary-500;
+}
+
+/* Gradient text */
+.text-gradient {
+  @apply bg-clip-text text-transparent bg-gradient-to-r from-primary-600 to-accent-500;
+}
