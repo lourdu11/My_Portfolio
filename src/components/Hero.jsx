@@ -94,7 +94,7 @@ const Hero = ({ theme }) => {
                         <a href="https://github.com/lourdu11" target="_blank" rel="noreferrer" className="text-gray-600 dark:text-gray-400 hover:text-primary-600 dark:hover:text-primary-400 transform hover:scale-110 transition-all duration-300">
                             <FaGithub size={28} />
                         </a>
-                        <a href="www.linkedin.com/in/lourdu11" target="_blank" rel="noreferrer" className="text-gray-600 dark:text-gray-400 hover:text-primary-600 dark:hover:text-primary-400 transform hover:scale-110 transition-all duration-300">
+                        <a href="https://linkedin.com/in/lourdu11" target="_blank" rel="noreferrer" className="text-gray-600 dark:text-gray-400 hover:text-primary-600 dark:hover:text-primary-400 transform hover:scale-110 transition-all duration-300">
                             <FaLinkedin size={28} />
                         </a>
                         <a 
