@@ -1,12 +1,14 @@
+import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { FaGithub, FaExternalLinkAlt } from 'react-icons/fa';
 
 const projectsData = [
     {
         title: 'Magizhchi-Garments – E-Commerce Web App',
-        description: '  Built a full-stack e-commerce platform with product and category CRUD operations, shopping cart, checkout, and order management features. Developed the frontend using HTML, CSS, and Bootstrap, and implemented the backend using PHP with a MySQL database. Integrated session handling, user authentication, and optimized database structure for better performance.”',
+        description: 'Built a full-stack e-commerce platform with product and category CRUD operations, shopping cart, checkout, and order management features. Developed the frontend using HTML, CSS, and Bootstrap, and implemented the backend using PHP with a MySQL database. Integrated session handling, user authentication, and optimized database structure for better performance.',
         image: 'https://images.unsplash.com/photo-1557821552-17105176677c?q=80&w=1000&auto=format&fit=crop',
-        tags: ['PHP', 'XAMMP', 'MySQL', 'Bootstrap', 'javascripta'],
+        tags: ['PHP', 'XAMMP', 'MySQL', 'Bootstrap', 'JavaScript'],
+        category: 'Full Stack',
         github: 'https://github.com/lourdu11/Magizhchi_Garments',
         live: 'https://magizchigarments.great-site.net/',
     },
@@ -15,6 +17,7 @@ const projectsData = [
         description: 'Built a full-stack Grocery Billing System using PHP and MySQL with product management, invoice generation, and secure billing functionality, featuring a responsive frontend developed with HTML, CSS, and Bootstrap.',
         image: 'https://ik.imagekit.io/Lourdu/sample/grocy.jpeg',
         tags: ['PHP', 'Javascript', 'XAMMP', 'MySQL', 'Bootstrap'],
+        category: 'Full Stack',
         github: 'https://github.com/lourdu11/Grocery_Billing_System',
         live: 'https://example.com',
     },
@@ -23,6 +26,7 @@ const projectsData = [
         description: 'Built a full-stack MERN color palette generator that enables users to create, customize, and save color combinations in real time. Implemented responsive UI design and efficient data management for a smooth and scalable user experience.',
         image: 'https://images.unsplash.com/photo-1620641788421-7a1c342ea42e?q=80&w=1000&auto=format&fit=crop',
         tags: ['MongoDB', 'Express', 'React', 'Node.js', 'OpenAI'],
+        category: 'Full Stack',
         github: 'https://github.com/lourdu11/COLER-PALETTE',
         live: 'https://example.com',
     },
@@ -88,6 +92,13 @@ const ProjectCard = ({ project, index }) => (
 );
 
 const Projects = () => {
+    const [activeTab, setActiveTab] = useState('All');
+    const categories = ['All', 'Frontend', 'Full Stack', 'Client'];
+
+    const filteredProjects = activeTab === 'All' 
+        ? projectsData 
+        : projectsData.filter(project => project.category === activeTab);
+
     return (
         <section id="projects" className="py-24 relative">
             <div className="container mx-auto px-6 md:px-12">
@@ -96,7 +107,7 @@ const Projects = () => {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true, margin: '-100px' }}
                     transition={{ duration: 0.6 }}
-                    className="text-center mb-16"
+                    className="text-center mb-12"
                 >
                     <h2 className="text-3xl md:text-5xl font-bold mb-4 text-gray-900 dark:text-white">
                         Featured <span className="text-gradient">Projects</span>
@@ -107,10 +118,39 @@ const Projects = () => {
                     </p>
                 </motion.div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 gap-8">
-                    {projectsData.map((project, index) => (
-                        <ProjectCard key={index} project={project} index={index} />
+                {/* Project Filters */}
+                <motion.div 
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.5, delay: 0.2 }}
+                    className="flex flex-wrap justify-center gap-4 mb-12"
+                >
+                    {categories.map((category) => (
+                        <button
+                            key={category}
+                            onClick={() => setActiveTab(category)}
+                            className={`px-6 py-2 rounded-full text-sm font-medium transition-all duration-300 ${
+                                activeTab === category 
+                                    ? 'bg-primary-500 text-white shadow-lg shadow-primary-500/30' 
+                                    : 'bg-white/50 dark:bg-dark-bg/50 text-gray-700 dark:text-gray-300 hover:bg-primary-50 dark:hover:bg-primary-900/30 border border-gray-200 dark:border-gray-800'
+                            }`}
+                        >
+                            {category}
+                        </button>
                     ))}
+                </motion.div>
+
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 gap-8">
+                    {filteredProjects.length > 0 ? (
+                        filteredProjects.map((project, index) => (
+                            <ProjectCard key={index} project={project} index={index} />
+                        ))
+                    ) : (
+                        <div className="col-span-full text-center py-12">
+                            <p className="text-gray-500 dark:text-gray-400 text-lg">More {activeTab} projects coming soon!</p>
+                        </div>
+                    )}
                 </div>
 
                 <motion.div

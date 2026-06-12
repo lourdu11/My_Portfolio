@@ -8,7 +8,6 @@ import Projects from './components/Projects';
 import Experience from './components/Experience';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
-import CustomCursor from './components/CustomCursor';
 
 function App() {
   const [theme, setTheme] = useState('dark');
@@ -37,7 +36,6 @@ function App() {
         className="fixed top-0 left-0 right-0 h-1 bg-gradient-to-r from-primary-500 to-accent-500 transform origin-left z-[100]"
         style={{ scaleX }}
       />
-      <CustomCursor />
 
       {/* Background gradients */}
       <div className="fixed inset-0 z-[-1] pointer-events-none">

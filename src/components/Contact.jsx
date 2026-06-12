@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { FaPaperPlane, FaPhoneAlt, FaEnvelope, FaMapMarkerAlt } from 'react-icons/fa';
-import axios from 'axios';
+import { FaPaperPlane, FaPhoneAlt, FaEnvelope, FaMapMarkerAlt, FaWhatsapp } from 'react-icons/fa';
 
 const Contact = () => {
     const [formData, setFormData] = useState({
@@ -19,22 +18,29 @@ const Contact = () => {
         setFormData({ ...formData, [e.target.name]: e.target.value });
     };
 
-    const handleSubmit = async (e) => {
+    const handleSubmit = (e) => {
         e.preventDefault();
         setIsSubmitting(true);
         setError(null);
 
         try {
-            await axios.post('http://localhost:5000/api/contact', formData);
+            const { name, email, subject, message } = formData;
+            const whatsappNumber = '919344881275'; 
+            
+            const text = `Hello, my name is ${name}.\n\nEmail: ${email}\nSubject: ${subject}\n\nMessage:\n${message}`;
+            const encodedText = encodeURIComponent(text);
+            const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodedText}`;
+            
+            window.open(whatsappUrl, '_blank');
+            
             setIsSubmitting(false);
             setIsSubmitted(true);
             setFormData({ name: '', email: '', subject: '', message: '' });
 
-            // Reset success message
             setTimeout(() => setIsSubmitted(false), 5000);
         } catch (err) {
-            console.error('Error submitting form:', err);
-            setError('Failed to send message. Please try again later.');
+            console.error('Error redirecting to WhatsApp:', err);
+            setError('Failed to open WhatsApp. Please try again.');
             setIsSubmitting(false);
         }
     };
@@ -197,8 +203,8 @@ const Contact = () => {
                                         </span>
                                     ) : (
                                         <span className="flex items-center">
-                                            Send Message
-                                            <FaPaperPlane className="ml-2" />
+                                            Send via WhatsApp
+                                            <FaWhatsapp className="ml-2 text-xl" />
                                         </span>
                                     )}
                                 </button>
