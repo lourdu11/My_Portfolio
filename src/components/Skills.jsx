@@ -1,11 +1,12 @@
 import { motion } from 'framer-motion';
-import { FaHtml5, FaCss3Alt, FaJs, FaReact, FaNodeJs, FaGitAlt } from 'react-icons/fa';
-import { SiTailwindcss, SiFramer, SiFirebase, SiPython,SiPhp,SiXampp,SiExpress,SiMongodb,SiPostman,SiVercel,SiBootstrap } from 'react-icons/si';
+import { FaHtml5, FaCss3Alt, FaJs, FaReact, FaNodeJs, FaGitAlt, FaSearch } from 'react-icons/fa';
+import { SiTailwindcss, SiFramer, SiFirebase, SiPython,SiPhp,SiXampp,SiExpress,SiMongodb,SiPostman,SiVercel,SiBootstrap, SiNextdotjs, SiDjango, SiMysql, SiOpenai } from 'react-icons/si';
 const skillsData = [
     {
         category: "Frontend",
         skills: [
             { name: 'React JS', icon: <FaReact className="text-[#61DAFB]" />, level: 70 },
+            { name: 'Next.js', icon: <SiNextdotjs className="text-black dark:text-white" />, level: 65 },
             { name: 'Tailwind CSS', icon: <SiTailwindcss className="text-[#38B2AC]" />, level: 60 },
             {name: 'Bootstrap', icon: <SiBootstrap className="text-[#563D7C]" />, level: 60},
             { name: 'JavaScript (ES6+)', icon: <FaJs className="text-[#F7DF1E]" />, level: 80 },
@@ -17,23 +18,22 @@ const skillsData = [
         skills: [
             { name: 'Node.js', icon: <FaNodeJs className="text-[#339933]" />, level: 40 },
             { name: 'Express.js', icon: <SiExpress className="text-black dark:text-white" />, level: 40 },
-            { name: 'MongoDB', icon: <SiMongodb className="text-[#47A248]" />, level: 85 },
-            { name: 'Firebase', icon: <SiFirebase className="text-[#FFCA28]" />, level: 80 },
-            { name: 'Python', icon: <SiPython className="text-[#3776AB]" />, level: 75 },
+            { name: 'Python Django', icon: <SiDjango className="text-[#092E20]" />, level: 70 },
             { name: 'PHP', icon: <SiPhp className="text-[#777BB4]" />, level: 70 },
+            { name: 'MongoDB', icon: <SiMongodb className="text-[#47A248]" />, level: 85 },
+            { name: 'MySQL', icon: <SiMysql className="text-[#4479A1]" />, level: 80 },
+            { name: 'Firebase', icon: <SiFirebase className="text-[#FFCA28]" />, level: 80 },
         ]
     },
     {
         category: "Tools & Others",
         skills: [
             { name: 'Git / GitHub', icon: <FaGitAlt className="text-[#F05032]" />, level: 85 },
-            { name: 'XAMPP', icon: <SiXampp className="text-[#FB7A24]" />, level: 70 },
             { name: 'Postman', icon: <SiPostman className="text-[#FF6C37]" />, level: 65 },
-            { name: 'Vercel', icon: <SiVercel className="text-black dark:text-white" />, level: 55 },
-            
-           
-         
-            // other tools if needed
+            { name: 'Vercel / Netlify', icon: <SiVercel className="text-black dark:text-white" />, level: 55 },
+            { name: 'AI Tools (Claude, Cursor)', icon: <SiOpenai className="text-black dark:text-white" />, level: 80 },
+            { name: 'SEO Optimization', icon: <FaSearch className="text-[#4285F4]" />, level: 75 },
+            { name: 'XAMPP', icon: <SiXampp className="text-[#FB7A24]" />, level: 70 },
         ]
     }
 ];

@@ -3,6 +3,20 @@ import { FaLaptopCode, FaServer, FaCubes } from 'react-icons/fa';
 
 const experienceData = [
     {
+        role: 'Full Stack Developer Intern',
+        company: 'VDart Academy, Trichy',
+        duration: 'Apr 2026 - Jun 2026',
+        description: [
+            'Collaborated in a team to build a Supply Chain & Warehouse Management System using Python Django, React 18, Tailwind CSS, and SQLite with REST APIs.',
+            'Implemented Role-Based Access Control (RBAC) with JWT authentication, OTP multi-factor verification, and login activity logging with IP tracking.',
+            'Developed inbound shipment workflows including GRN processing, Code128 barcode generation, and automated putaway algorithms with zone & shelf matching.',
+            'Built interactive role-specific dashboards with Recharts for real-time inventory analytics, stock movements, vendor scoring, and low-stock alerts.',
+            'Implemented PDF parsing (pdfplumber) for vendor agreement uploads, GSTIN validation, and automated column mapping.',
+            'Configured and tested REST APIs using Postman, managed local development environments, and collaborated using Git/GitHub for version control.'
+        ],
+        icon: <FaLaptopCode />,
+    },
+    {
         role: 'MERN Stack Developer Intern (Remote)',
         company: 'NoviTech R&D Private Limited',
         duration: 'Dec 2025 - Mar 2026',
