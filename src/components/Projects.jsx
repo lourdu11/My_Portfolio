@@ -51,7 +51,7 @@ const projectsData = [
     {
         title: 'Sprouts Organizations',
         description: 'Designed and developed a complete web presence for Sprouts Organizations. Features a clean, nature-inspired UI to effectively communicate their mission, dynamic content sections, and an engaging user experience.',
-        image: 'https://images.unsplash.com/photo-1466692476877-04f0709fd0bc?q=80&w=1000&auto=format&fit=crop',
+        image: 'https://ik.imagekit.io/Lourdu/Sprouts/logo.jpeg?updatedAt=1773849138906',
         tags: ['Web Development', 'UI/UX', 'Responsive'],
         category: 'Client',
         github: '',
