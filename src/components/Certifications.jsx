@@ -58,28 +58,39 @@ const Certifications = () => {
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true, margin: '-50px' }}
                             transition={{ duration: 0.5, delay: index * 0.1 }}
-                            className="glass-card flex flex-col h-full group hover:-translate-y-2 transition-transform duration-300"
+                            className="glass-card flex flex-col h-full group hover:-translate-y-2 transition-transform duration-300 overflow-hidden p-0"
                         >
-                            <div className="flex items-center space-x-4 mb-6">
-                                <div className="flex-shrink-0 w-12 h-12 rounded-full bg-primary-100 dark:bg-primary-900/30 flex items-center justify-center text-primary-600 dark:text-primary-400 text-2xl group-hover:bg-primary-500 group-hover:text-white transition-colors duration-300">
-                                    {item.icon}
+                            {item.image && (
+                                <div className="w-full h-48 overflow-hidden border-b border-gray-200 dark:border-gray-700">
+                                    <img 
+                                        src={item.image} 
+                                        alt={item.title} 
+                                        className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500" 
+                                    />
                                 </div>
-                                <div>
-                                    <h3 className="text-lg font-bold text-gray-900 dark:text-white leading-tight">
-                                        {item.title}
-                                    </h3>
+                            )}
+                            <div className="p-6 flex flex-col flex-grow">
+                                <div className="flex items-center space-x-4 mb-6">
+                                    <div className="flex-shrink-0 w-12 h-12 rounded-full bg-primary-100 dark:bg-primary-900/30 flex items-center justify-center text-primary-600 dark:text-primary-400 text-2xl group-hover:bg-primary-500 group-hover:text-white transition-colors duration-300">
+                                        {item.icon}
+                                    </div>
+                                    <div>
+                                        <h3 className="text-lg font-bold text-gray-900 dark:text-white leading-tight">
+                                            {item.title}
+                                        </h3>
+                                    </div>
                                 </div>
-                            </div>
-                            
-                            <div className="flex-grow">
-                                <div className="text-accent-500 font-medium text-sm mb-1">{item.issuer}</div>
-                                <div className="text-gray-500 dark:text-gray-400 text-xs font-bold uppercase tracking-wider mb-4">{item.date}</div>
                                 
-                                <ul className="list-disc list-inside text-gray-600 dark:text-gray-400 space-y-2 text-sm leading-relaxed">
-                                    {item.description.map((desc, i) => (
-                                        <li key={i}>{desc}</li>
-                                    ))}
-                                </ul>
+                                <div className="flex-grow">
+                                    <div className="text-accent-500 font-medium text-sm mb-1">{item.issuer}</div>
+                                    <div className="text-gray-500 dark:text-gray-400 text-xs font-bold uppercase tracking-wider mb-4">{item.date}</div>
+                                    
+                                    <ul className="list-disc list-inside text-gray-600 dark:text-gray-400 space-y-2 text-sm leading-relaxed">
+                                        {item.description.map((desc, i) => (
+                                            <li key={i}>{desc}</li>
+                                        ))}
+                                    </ul>
+                                </div>
                             </div>
                         </motion.div>
                     ))}

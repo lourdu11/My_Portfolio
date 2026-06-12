@@ -1,6 +1,6 @@
 import { useState } from 'react';
-import { motion } from 'framer-motion';
-import { FaGithub, FaExternalLinkAlt } from 'react-icons/fa';
+import { motion, AnimatePresence } from 'framer-motion';
+import { FaGithub, FaExternalLinkAlt, FaTimes } from 'react-icons/fa';
 
 const projectsData = [
     {
@@ -59,13 +59,14 @@ const projectsData = [
     },
 ];
 
-const ProjectCard = ({ project, index }) => (
+const ProjectCard = ({ project, index, onClick }) => (
     <motion.div
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: '-50px' }}
         transition={{ duration: 0.5, delay: index * 0.1 }}
-        className="glass-card group flex flex-col overflow-hidden p-0"
+        className="glass-card group flex flex-col overflow-hidden p-0 cursor-pointer"
+        onClick={onClick}
     >
         <div className="relative overflow-hidden h-48 sm:h-60">
             <div className="absolute inset-0 bg-primary-900/20 group-hover:bg-transparent transition-colors duration-300 z-10"></div>
@@ -121,6 +122,7 @@ const ProjectCard = ({ project, index }) => (
 
 const Projects = () => {
     const [activeTab, setActiveTab] = useState('All');
+    const [selectedProject, setSelectedProject] = useState(null);
     const categories = ['All', 'Frontend', 'Full Stack', 'Client'];
 
     const filteredProjects = activeTab === 'All' 
@@ -172,7 +174,12 @@ const Projects = () => {
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 gap-8">
                     {filteredProjects.length > 0 ? (
                         filteredProjects.map((project, index) => (
-                            <ProjectCard key={index} project={project} index={index} />
+                            <ProjectCard 
+                                key={index} 
+                                project={project} 
+                                index={index} 
+                                onClick={() => setSelectedProject(project)}
+                            />
                         ))
                     ) : (
                         <div className="col-span-full text-center py-12">
@@ -189,7 +196,7 @@ const Projects = () => {
                     className="mt-16 text-center"
                 >
                     <a
-                        href="https://github.com"
+                        href="https://github.com/lourdu11"
                         target="_blank"
                         rel="noopener noreferrer"
                         className="btn-secondary inline-block"
@@ -197,6 +204,74 @@ const Projects = () => {
                         View More on GitHub
                     </a>
                 </motion.div>
+
+                {/* Project Details Modal */}
+                <AnimatePresence>
+                    {selectedProject && (
+                        <motion.div
+                            initial={{ opacity: 0 }}
+                            animate={{ opacity: 1 }}
+                            exit={{ opacity: 0 }}
+                            className="fixed inset-0 z-[100] flex items-center justify-center p-4 sm:p-6 bg-black/60 backdrop-blur-sm"
+                            onClick={() => setSelectedProject(null)}
+                        >
+                            <motion.div
+                                initial={{ opacity: 0, scale: 0.9, y: 20 }}
+                                animate={{ opacity: 1, scale: 1, y: 0 }}
+                                exit={{ opacity: 0, scale: 0.9, y: 20 }}
+                                className="bg-white dark:bg-slate-900 rounded-2xl shadow-2xl max-w-4xl w-full max-h-[90vh] overflow-y-auto relative"
+                                onClick={(e) => e.stopPropagation()}
+                            >
+                                <div className="relative h-64 sm:h-96 w-full">
+                                    <img src={selectedProject.image} alt={selectedProject.title} className="w-full h-full object-cover" />
+                                    <button 
+                                        onClick={() => setSelectedProject(null)}
+                                        className="absolute top-4 right-4 w-10 h-10 bg-black/50 hover:bg-black/80 text-white rounded-full flex items-center justify-center transition-colors backdrop-blur-md z-10"
+                                    >
+                                        <FaTimes size={20} />
+                                    </button>
+                                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
+                                    <div className="absolute bottom-0 left-0 p-6 sm:p-8">
+                                        <h3 className="text-3xl sm:text-4xl font-bold text-white mb-2">{selectedProject.title}</h3>
+                                        <div className="flex flex-wrap gap-2">
+                                            {selectedProject.tags.map((tag, tagIndex) => (
+                                                <span key={tagIndex} className="text-xs font-semibold px-3 py-1.5 rounded-full bg-primary-500/80 text-white backdrop-blur-sm border border-white/20">
+                                                    {tag}
+                                                </span>
+                                            ))}
+                                        </div>
+                                    </div>
+                                </div>
+                                <div className="p-6 sm:p-8">
+                                    <div className="prose prose-lg dark:prose-invert max-w-none">
+                                        <h4 className="text-xl font-bold mb-4 text-primary-600 dark:text-primary-400">Project Overview</h4>
+                                        <p className="text-gray-700 dark:text-gray-300 mb-8 leading-relaxed">{selectedProject.description}</p>
+                                        
+                                        <h4 className="text-xl font-bold mb-4 text-primary-600 dark:text-primary-400">Full Use Case & Implementation</h4>
+                                        <div className="bg-primary-50 dark:bg-primary-900/10 p-6 rounded-xl border border-primary-100 dark:border-primary-900/30">
+                                            <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
+                                                {selectedProject.useCase || "This project demonstrates the ability to architect, build, and deploy a full-scale web application addressing real-world requirements. Key features were implemented to ensure a robust, scalable, and user-friendly experience. Detailed technical implementation and specific problem-solving metrics will be updated shortly."}
+                                            </p>
+                                        </div>
+                                    </div>
+                                    
+                                    <div className="flex flex-wrap gap-4 mt-8 pt-8 border-t border-gray-200 dark:border-gray-800">
+                                        {selectedProject.live && (
+                                            <a href={selectedProject.live} target="_blank" rel="noopener noreferrer" className="btn-primary flex items-center gap-2">
+                                                View Live Site <FaExternalLinkAlt size={14} />
+                                            </a>
+                                        )}
+                                        {selectedProject.github && (
+                                            <a href={selectedProject.github} target="_blank" rel="noopener noreferrer" className="btn-secondary flex items-center gap-2">
+                                                View Source <FaGithub size={16} />
+                                            </a>
+                                        )}
+                                    </div>
+                                </div>
+                            </motion.div>
+                        </motion.div>
+                    )}
+                </AnimatePresence>
             </div>
         </section>
     );
