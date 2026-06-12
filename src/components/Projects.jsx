@@ -30,7 +30,33 @@ const projectsData = [
         github: 'https://github.com/lourdu11/COLER-PALETTE',
         live: 'https://example.com',
     },
-
+    {
+        title: 'CodeRise',
+        description: 'Developed CodeRise, a professional web development agency platform offering website creation, SEO services, and digital solutions for startups and businesses in Trichy.',
+        image: 'https://ik.imagekit.io/Lourdu/CodeRise/WhatsApp%20Image%202026-03-16%20at%2014.33.07%20(1).jpeg',
+        tags: ['React', 'Web Development', 'SEO', 'Full Stack'],
+        category: 'Full Stack',
+        github: '',
+        live: 'https://coderisetech.vercel.app/',
+    },
+    {
+        title: 'Magizhchi Garments',
+        description: 'Developed a responsive, user-friendly frontend for a garments business. Built with modern web technologies to ensure smooth navigation, fast loading times, and a visually appealing product showcase.',
+        image: 'https://images.unsplash.com/photo-1441984904996-e0b6ba687e04?q=80&w=1000&auto=format&fit=crop',
+        tags: ['React', 'Tailwind CSS', 'Frontend'],
+        category: 'Client',
+        github: '',
+        live: 'https://magizhchigarments.vercel.app/',
+    },
+    {
+        title: 'Sprouts Organizations',
+        description: 'Designed and developed a complete web presence for Sprouts Organizations. Features a clean, nature-inspired UI to effectively communicate their mission, dynamic content sections, and an engaging user experience.',
+        image: 'https://images.unsplash.com/photo-1466692476877-04f0709fd0bc?q=80&w=1000&auto=format&fit=crop',
+        tags: ['Web Development', 'UI/UX', 'Responsive'],
+        category: 'Client',
+        github: '',
+        live: 'https://sproutsorgs.com/',
+    },
 ];
 
 const ProjectCard = ({ project, index }) => (
@@ -49,15 +75,17 @@ const ProjectCard = ({ project, index }) => (
                 className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500"
             />
             <div className="absolute top-4 right-4 flex space-x-2 z-20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 transform translate-y-2 group-hover:translate-y-0">
-                <a
-                    href={project.github}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="w-10 h-10 rounded-full bg-white dark:bg-dark-bg text-gray-900 dark:text-white flex items-center justify-center hover:text-primary-500 hover:scale-110 transition-all shadow-lg"
-                    aria-label="GitHub Repository"
-                >
-                    <FaGithub size={20} />
-                </a>
+                {project.github && (
+                    <a
+                        href={project.github}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="w-10 h-10 rounded-full bg-white dark:bg-dark-bg text-gray-900 dark:text-white flex items-center justify-center hover:text-primary-500 hover:scale-110 transition-all shadow-lg"
+                        aria-label="GitHub Repository"
+                    >
+                        <FaGithub size={20} />
+                    </a>
+                )}
                 <a
                     href={project.live}
                     target="_blank"

@@ -68,8 +68,9 @@ const Hero = ({ theme }) => {
                         className="flex flex-col sm:flex-row items-center justify-center md:justify-start space-y-4 sm:space-y-0 sm:space-x-4 mb-10"
                     >
                         <a
-  href="/Lourdu_Xavier_A.pdf"
-  download="Lourdu_Xavier_A.pdf"
+  href="https://ik.imagekit.io/Lourdu/Important%20files/Lourdu%20Xavier%20A.pdf"
+  target="_blank"
+  rel="noopener noreferrer"
   className="btn-primary w-full sm:w-auto text-center"
 >
                             Download Resume
@@ -124,8 +125,7 @@ const Hero = ({ theme }) => {
                             transition={{ repeat: Infinity, duration: 4, ease: "easeInOut" }}
                         >
                             {/* Fallback image if user doesn't have one */}
-                           {/*<div className="text-9xl font-bold text-gray-300 dark:text-gray-600">JD</div>*/} 
-                            {<img src="https://ik.imagekit.io/Lourdu/sample/lourdu.jpeg" alt="Profile" className="object-cover w-full h-full" /> }
+                            {<img src="https://ik.imagekit.io/Lourdu/sample/WhatsApp%20Image%202026-05-20%20at%2011.18.55.jpeg?updatedAt=1779280149549" alt="Profile" className="object-cover w-full h-full" /> }
                         </motion.div>
 
                         {/* Floating Badges */}

@@ -37,9 +37,9 @@ const Navbar = ({ theme, toggleTheme }) => {
                     to="home"
                     smooth={true}
                     duration={500}
-                    className="text-2xl font-bold cursor-pointer text-gradient"
+                    className="cursor-pointer"
                 >
-                    Portfolio
+                    <img src="https://ik.imagekit.io/Lourdu/sample/WhatsApp%20Image%202026-05-20%20at%2011.18.55.jpeg?updatedAt=1779280149549" alt="Logo" className="w-10 h-10 rounded-full object-cover border-2 border-primary-500" />
                 </Link>
 
                 {/* Desktop Nav */}
