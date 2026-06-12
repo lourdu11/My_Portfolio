@@ -11,6 +11,7 @@ const certificationsData = [
             'Designed end-to-end AI/ML curriculum covering Supervised & Unsupervised Learning, classification, regression, and hands-on WEKA AI sessions.',
         ],
         icon: <FaAward />,
+        image: 'https://ik.imagekit.io/Lourdu/Important%20files/Lourdu%20Xavier%20Appreciation%20Letter.jpg?updatedAt=1779448405640',
     },
     {
         title: 'Hackathon & Industry Visit – Full Stack Web Suite',
@@ -20,6 +21,7 @@ const certificationsData = [
             'Strengthened full-stack development skills through an industry-level hackathon focused on real-world web practices.',
         ],
         icon: <FaCertificate />,
+        image: 'https://ik.imagekit.io/Lourdu/Important%20files/Whatsapp%20Scan%2014%20February%202026%20at%2014.58.40.jpeg?updatedAt=1779448632722',
     },
     {
         title: 'Typewriting English (Senior & Junior Grade)',
