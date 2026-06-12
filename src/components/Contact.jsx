@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { FaPaperPlane, FaPhoneAlt, FaEnvelope, FaMapMarkerAlt } from 'react-icons/fa';
+import axios from 'axios';
 
 const Contact = () => {
     const [formData, setFormData] = useState({
@@ -12,24 +13,30 @@ const Contact = () => {
 
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [isSubmitted, setIsSubmitted] = useState(false);
+    const [error, setError] = useState(null);
 
     const handleChange = (e) => {
         setFormData({ ...formData, [e.target.name]: e.target.value });
     };
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
         setIsSubmitting(true);
+        setError(null);
 
-        // Simulate API call
-        setTimeout(() => {
+        try {
+            await axios.post('http://localhost:5000/api/contact', formData);
             setIsSubmitting(false);
             setIsSubmitted(true);
             setFormData({ name: '', email: '', subject: '', message: '' });
 
             // Reset success message
             setTimeout(() => setIsSubmitted(false), 5000);
-        }, 1500);
+        } catch (err) {
+            console.error('Error submitting form:', err);
+            setError('Failed to send message. Please try again later.');
+            setIsSubmitting(false);
+        }
     };
 
     return (
@@ -164,6 +171,12 @@ const Contact = () => {
                                         placeholder="Tell me about your project..."
                                     ></textarea>
                                 </div>
+
+                                {error && (
+                                    <div className="text-red-500 text-sm mt-2 text-center">
+                                        {error}
+                                    </div>
+                                )}
 
                                 <button
                                     type="submit"

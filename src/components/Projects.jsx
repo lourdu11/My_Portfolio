@@ -6,9 +6,9 @@ const projectsData = [
         title: 'Magizhchi-Garments – E-Commerce Web App',
         description: '  Built a full-stack e-commerce platform with product and category CRUD operations, shopping cart, checkout, and order management features. Developed the frontend using HTML, CSS, and Bootstrap, and implemented the backend using PHP with a MySQL database. Integrated session handling, user authentication, and optimized database structure for better performance.”',
         image: 'https://images.unsplash.com/photo-1557821552-17105176677c?q=80&w=1000&auto=format&fit=crop',
-        tags: ['PHP', 'XAMMP', 'MySQL', 'Bootstrap','javascripta'],
+        tags: ['PHP', 'XAMMP', 'MySQL', 'Bootstrap', 'javascripta'],
         github: 'https://github.com/lourdu11/Magizhchi_Garments',
-        live: 'https://example.com',
+        live: 'https://magizchigarments.great-site.net/',
     },
     {
         title: 'Grocery Billing System',
@@ -26,7 +26,7 @@ const projectsData = [
         github: 'https://github.com/lourdu11/COLER-PALETTE',
         live: 'https://example.com',
     },
-    
+
 ];
 
 const ProjectCard = ({ project, index }) => (
